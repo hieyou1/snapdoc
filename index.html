@@ -21,16 +21,19 @@
                 switch (docType) {
                     case "document": {
                         doc.protocol = "googledocs:";
+                        window.alert(doc.href);
                         window.location.href = doc.href;
                         break;
                     }
                     case "spreadsheet": {
                         doc.protocol = "googlesheets:";
+                        window.alert(doc.href);
                         window.location.href = doc.href;
                         break;
                     }
                     case "presentation": {
                         doc.protocol = "googleslides:";
+                        window.alert(doc.href);
                         window.location.href = doc.href;
                         break;
                     }
@@ -40,10 +43,12 @@
                 }
                 window.setTimeout(500);
             }
+            window.alert(doc.href);
             doc.protocol = "googledrive:";
             window.location.href = doc.href;
             window.setTimeout(500);
         }
+        window.alert(doc.href);
         doc.protocol = "https:";
         window.location.href = doc.href;
     </script>
