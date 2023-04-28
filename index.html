@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <div id="status">Redirecting...</div>
+    <script>
+        let url = new URL(window.location);
+        let rawDoc = Array.from(url.searchParams.values())[0] ?? url.search.replace("?", "");
+        if (!rawDoc) {
+            document.querySelector("#status").innerText = "Sorry, couldn't find doc";
+        }
+        let doc = new URL(rawDoc);
+        if (doc.host == "docs.google.com" || doc.host == "drive.google.com") {
+            if (doc.host == "docs.google.com") {
+                let docType = doc.pathname.split("/")[1]; // 'document', 'spreadsheet', 'presentation' or smth else
+                switch (docType) {
+                    case "document": {
+                        doc.protocol = "googledocs:";
+                        window.location.href = doc.href;
+                        break;
+                    }
+                    case "spreadsheet": {
+                        doc.protocol = "googlesheets:";
+                        window.location.href = doc.href;
+                        break;
+                    }
+                    case "presentation": {
+                        doc.protocol = "googleslides:";
+                        window.location.href = doc.href;
+                        break;
+                    }
+                    default: {
+                        break;
+                    }
+                }
+            }
+            doc.protocol = "googledrive:";
+            window.location.href = doc.href;
+        }
+        doc.protocol = "https:";
+        window.location.href = doc.href;
+    </script>
+</body>
+</html>
