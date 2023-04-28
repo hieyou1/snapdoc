@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
 </head>
+
 <body>
     <div id="status">Redirecting...</div>
     <script>
@@ -21,17 +23,17 @@
                 switch (docType) {
                     case "document": {
                         doc.protocol = "googledocs:";
-                        window.location.href = doc.href;
+                        window.open(doc.href);
                         break;
                     }
                     case "spreadsheet": {
                         doc.protocol = "googlesheets:";
-                        window.location.href = doc.href;
+                        window.open(doc.href);
                         break;
                     }
                     case "presentation": {
                         doc.protocol = "googleslides:";
-                        window.location.href = doc.href;
+                        window.open(doc.href);
                         break;
                     }
                     default: {
@@ -41,11 +43,12 @@
                 window.setTimeout(5000);
             }
             doc.protocol = "googledrive:";
-            window.location.href = doc.href;
+            window.open(doc.href);
             window.setTimeout(5000);
         }
         doc.protocol = "https:";
-        window.location.href = doc.href;
+        window.open(doc.href);
     </script>
 </body>
+
 </html>
