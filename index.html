@@ -42,11 +42,11 @@
                             break;
                         }
                     }
-                    await sleep(500);
+                    await sleep(1000);
                 }
                 doc.protocol = "googledrive:";
                 window.location.href = doc.href;
-                await sleep(500);
+                await sleep(1000);
             }
             doc.protocol = "https:";
             window.location.href = doc.href;
