@@ -38,9 +38,11 @@
                         break;
                     }
                 }
+                window.setTimeout(500);
             }
             doc.protocol = "googledrive:";
             window.location.href = doc.href;
+            window.setTimeout(500);
         }
         doc.protocol = "https:";
         window.location.href = doc.href;
